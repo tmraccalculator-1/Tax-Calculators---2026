@@ -48,272 +48,60 @@
         input:checked + .slider:before {
             transform: translateX(18px);
         }
-        .slab-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 1rem 0;
-        }
-        .slab-table th, .slab-table td {
-            border: 1px solid #ddd;
-            padding: 8px;
-            text-align: left;
-        }
-        .slab-table th {
-            background-color: #f2f2f2;
-        }
-        .slab-table tr:nth-child(even) {
-            background-color: #f9f9f9;
-        }
 
         /* Professional Results Dashboard Styles */
         #unifiedResultsDashboard {
-            display: block;
             background: white;
             border-radius: 12px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
             border: 1px solid #e2e8f0;
             margin-top: 2rem;
             overflow: hidden;
+            transition: opacity 0.5s ease-in-out, max-height 0.5s ease-in-out;
         }
         
-        #printableDashboard {
-            padding: 0;
-        }
+        #printableDashboard { padding: 0; }
+        .print-header { background: linear-gradient(135deg, #4f46e5 0%, #312e81 100%); color: white; padding: 1.5rem 2rem; text-align: center; margin-bottom: 0; }
+        .print-header h2 { color: white; font-size: 1.5rem; font-weight: 600; margin: 0.5rem 0 0.25rem; }
+        .print-header p { color: rgba(255, 255, 255, 0.9); font-size: 0.875rem; }
+        .print-header img { height: 60px; }
+        .print-section { background: white; border-radius: 8px; margin: 1rem 1.5rem; padding: 1.25rem 1.5rem; border: 1px solid #edf2f7; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03); }
+        .print-section h3 { font-size: 1.125rem; font-weight: 600; color: #2d3748; margin: 0 0 1rem; padding-bottom: 0.75rem; border-bottom: 1px solid #e2e8f0; display: flex; align-items: center; gap: 0.5rem; }
+        .print-section h3 svg { width: 1.25rem; height: 1.25rem; }
+        .print-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem; }
+        .print-grid p { margin: 0; font-size: 0.9375rem; color: #4a5568; }
+        .print-grid strong { display: inline-block; width: 60%; color: #2d3748; font-weight: 500; }
+        .print-summary { margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid #e2e8f0; }
+        .slab-table { width: 100%; border-collapse: separate; border-spacing: 0; margin: 1rem 0; font-size: 0.875rem; }
+        .slab-table th { background-color: #f7fafc; color: #4a5568; font-weight: 600; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 0.5px; padding: 0.75rem 1rem; border: none; }
+        .slab-table td { padding: 0.75rem 1rem; border: none; border-bottom: 1px solid #edf2f7; color: #4a5568; }
+        .slab-table tr:last-child td { border-bottom: none; }
+        .slab-table tfoot td { font-weight: 600; color: #2d3748; background-color: #f7fafc; }
+        .print-footer { background-color: #f8fafc; padding: 1rem; text-align: center; font-size: 0.8125rem; color: #718096; border-top: 1px solid #e2e8f0; margin-top: 1.5rem; }
+        .key-figure { font-size: 1.25rem; font-weight: 600; color: #1e40af; }
+        .key-figure.rent { color: #ea580c; }
+        .key-figure.agricultural { color: #166534; }
         
-        .print-header {
-            background: linear-gradient(135deg, #4f46e5 0%, #312e81 100%);
-            color: white;
-            padding: 1.5rem 2rem;
-            text-align: center;
-            margin-bottom: 0;
+        /* PDF Button Styles */
+        .pdf-button {
+            background-color: #e53e3e; color: white; font-weight: 600; padding: 0.5rem 1rem; border-radius: 0.375rem; display: inline-flex; align-items: center; transition: all 0.2s; box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
         }
-        
-        .print-header h2 {
-            color: white;
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin: 0.5rem 0 0.25rem;
+        .pdf-button:hover {
+            background-color: #c53030; transform: translateY(-1px); box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
         }
-        
-        .print-header p {
-            color: rgba(255, 255, 255, 0.9);
-            font-size: 0.875rem;
-        }
-        
-        .print-header img {
-            height: 60px;
-            
-        }
-        
-        .print-section {
-            background: white;
-            border-radius: 8px;
-            margin: 1rem 1.5rem;
-            padding: 1.25rem 1.5rem;
-            border: 1px solid #edf2f7;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
-        }
-        
-        .print-section h3 {
-            font-size: 1.125rem;
-            font-weight: 600;
-            color: #2d3748;
-            margin: 0 0 1rem;
-            padding-bottom: 0.75rem;
-            border-bottom: 1px solid #e2e8f0;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        
-        .print-section h3 svg {
-            width: 1.25rem;
-            height: 1.25rem;
-        }
-        
-        .print-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 1rem;
-        }
-        
-        .print-grid p {
-            margin: 0;
-            font-size: 0.9375rem;
-            color: #4a5568;
-        }
-        
-        .print-grid strong {
-            display: inline-block;
-            width: 60%;
-            color: #2d3748;
-            font-weight: 500;
-        }
-        
-        .print-summary {
-            margin-top: 1.5rem;
-            padding-top: 1rem;
-            border-top: 1px solid #e2e8f0;
-        }
-        
-        .slab-table {
-            width: 100%;
-            border-collapse: separate;
-            border-spacing: 0;
-            margin: 1rem 0;
-            font-size: 0.875rem;
-        }
-        
-        .slab-table th {
-            background-color: #f7fafc;
-            color: #4a5568;
-            font-weight: 600;
-            text-transform: uppercase;
-            font-size: 0.75rem;
-            letter-spacing: 0.5px;
-            padding: 0.75rem 1rem;
-            border: none;
-        }
-        
-        .slab-table td {
-            padding: 0.75rem 1rem;
-            border: none;
-            border-bottom: 1px solid #edf2f7;
-            color: #4a5568;
-        }
-        
-        .slab-table tr:last-child td {
-            border-bottom: none;
-        }
-        
-        .slab-table tfoot td {
-            font-weight: 600;
-            color: #2d3748;
-            background-color: #f7fafc;
-        }
-        
-        .print-footer {
-            background-color: #f8fafc;
-            padding: 1rem;
-            text-align: center;
-            font-size: 0.8125rem;
-            color: #718096;
-            border-top: 1px solid #e2e8f0;
-            margin-top: 1.5rem;
-        }
-        
-        /* Calculator-specific highlights */
-        #nonSalariedResultsSummary .print-section h3 {
-            color: #4f46e5;
-        }
-        
-        #salariedResultsSummary .print-section h3 {
-            color: #6366f1;
-        }
-        
-        #rentResultsSummary .print-section h3 {
-            color: #f97316;
-        }
-        
-        #agriculturalResultsSummary .print-section h3 {
-            color: #22c55e;
-        }
-        
-        /* Key figure highlights */
-        .key-figure {
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: #1e40af;
-        }
-        
-        .key-figure.rent {
-            color: #ea580c;
-        }
-        
-        .key-figure.agricultural {
-            color: #166534;
-        }
-        
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            .print-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .print-section {
-                margin: 1rem;
-                padding: 1rem;
-            }
+        .pdf-button svg { width: 1.25rem; height: 1.25rem; margin-right: 0.5rem; }
+
+        /* Animation for calculator sections */
+        .calculator-section {
+            transition: opacity 0.4s ease-in-out;
         }
 
         /* Print-specific styles */
         @media print {
-            body * {
-                visibility: hidden;
-            }
-            #printableDashboard, #printableDashboard * {
-                visibility: visible;
-            }
-            #printableDashboard {
-                position: absolute;
-                left: 0;
-                top: 0;
-                width: 100%;
-                height: 100%;
-                margin: 0;
-                padding: 10mm;
-                box-sizing: border-box;
-                background: white;
-                font-family: Arial, sans-serif;
-                color: #333;
-                font-size: 12px;
-            }
-            @page {
-                size: legal portrait;
-                margin: 10mm;
-            }
-            body {
-                width: 216mm;
-                height: 356mm;
-                margin: 0;
-                padding: 0;
-            }
-            .no-print {
-                display: none !important;
-            }
-            .slab-table th, .slab-table td {
-                border-color: #ccc;
-                padding: 4px 6px;
-                font-size: 11px;
-            }
-            .slab-table th {
-                background-color: #f5f5f5;
-            }
-        }
-
-        /* PDF Button Styles */
-        .pdf-button {
-            background-color: #e53e3e;
-            color: white;
-            font-weight: 600;
-            padding: 0.5rem 1rem;
-            border-radius: 0.375rem;
-            display: inline-flex;
-            align-items: center;
-            transition: all 0.2s;
-            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-        }
-        
-        .pdf-button:hover {
-            background-color: #c53030;
-            transform: translateY(-1px);
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-        }
-        
-        .pdf-button svg {
-            width: 1.25rem;
-            height: 1.25rem;
-            margin-right: 0.5rem;
+            body * { visibility: hidden; }
+            #printableDashboard, #printableDashboard * { visibility: visible; }
+            #printableDashboard { position: absolute; left: 0; top: 0; width: 100%; margin: 0; padding: 0; box-shadow: none; border: none; }
+            .no-print { display: none !important; }
         }
     </style>
 </head>
@@ -326,12 +114,13 @@
             </div>
 
             <div class="mb-6 flex justify-center gap-4">
-                <button class="calc-tab-btn px-6 py-3 rounded-lg font-semibold text-white bg-blue-600 hover:bg-blue-700" data-calculator="non-salaried">Non-Salaried</button>
-                <button class="calc-tab-btn px-6 py-3 rounded-lg font-semibold text-gray-700 bg-gray-200 hover:bg-gray-300" data-calculator="salaried">Salaried</button>
-                <button class="calc-tab-btn px-6 py-3 rounded-lg font-semibold text-gray-700 bg-gray-200 hover:bg-gray-300" data-calculator="rent">Rent</button>
-                <button class="calc-tab-btn px-6 py-3 rounded-lg font-semibold text-gray-700 bg-gray-200 hover:bg-gray-300" data-calculator="agricultural">Agricultural</button>
+                <button class="calc-tab-btn px-6 py-3 rounded-lg font-semibold text-white bg-blue-600 hover:bg-blue-700 transition-all" data-calculator="non-salaried">Non-Salaried</button>
+                <button class="calc-tab-btn px-6 py-3 rounded-lg font-semibold text-gray-700 bg-gray-200 hover:bg-gray-300 transition-all" data-calculator="salaried">Salaried</button>
+                <button class="calc-tab-btn px-6 py-3 rounded-lg font-semibold text-gray-700 bg-gray-200 hover:bg-gray-300 transition-all" data-calculator="rent">Rent</button>
+                <button class="calc-tab-btn px-6 py-3 rounded-lg font-semibold text-gray-700 bg-gray-200 hover:bg-gray-300 transition-all" data-calculator="agricultural">Agricultural</button>
             </div>
-
+            
+            <!-- Personal Info -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                 <div>
                     <label class="block text-gray-700 font-medium mb-1">Full Name (Optional)</label>
@@ -343,339 +132,101 @@
                 </div>
             </div>
 
-            <div id="non-salariedCalculator" class="calculator-section">
-                <h2 class="text-xl font-semibold text-blue-700 mb-4">Non-Salaried Income Tax</h2>
-                <div class="mb-6">
-                    <label class="block text-gray-700 font-medium mb-2">Calculation Mode</label>
-                    <div class="flex gap-6">
-                        <label class="flex items-center gap-2"><input type="radio" name="nonSalariedMode" value="forward" checked onchange="toggleNonSalariedMode()" class="accent-blue-600"> From Income</label>
-                        <label class="flex items-center gap-2"><input type="radio" name="nonSalariedMode" value="reverse" onchange="toggleNonSalariedMode()" class="accent-blue-600"> From Tax</label>
-                    </div>
+            <!-- Calculators Wrapper -->
+            <div class="relative">
+                <div id="non-salariedCalculator" class="calculator-section">
+                    <!-- Non-Salaried Content -->
+                    <h2 class="text-xl font-semibold text-blue-700 mb-4">Non-Salaried Income Tax</h2>
+                    <div class="mb-6"><label class="block text-gray-700 font-medium mb-2">Calculation Mode</label><div class="flex gap-6"><label class="flex items-center gap-2"><input type="radio" name="nonSalariedMode" value="forward" checked onchange="toggleNonSalariedMode()" class="accent-blue-600"> From Income</label><label class="flex items-center gap-2"><input type="radio" name="nonSalariedMode" value="reverse" onchange="toggleNonSalariedMode()" class="accent-blue-600"> From Tax</label></div></div>
+                    <div id="nonSalariedIncomeInputWrapper" class="mb-6"><label class="block text-gray-700 font-medium mb-1">Taxable Income (PKR)</label><input type="number" id="nonSalariedIncome" class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter annual income" /></div>
+                    <div id="nonSalariedTaxInputWrapper" class="mb-6 hidden"><label class="block text-gray-700 font-medium mb-1">Known Tax Amount (PKR)</label><input type="number" id="nonSalariedKnownTax" class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter tax to estimate income" /></div>
+                    <button onclick="calculateNonSalariedTax()" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded shadow">Calculate Non-Salaried Tax</button>
                 </div>
-                <div id="nonSalariedIncomeInputWrapper" class="mb-6">
-                    <label class="block text-gray-700 font-medium mb-1">Taxable Income (PKR)</label>
-                    <input type="number" id="nonSalariedIncome" class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter annual income" />
+
+                <div id="salariedCalculator" class="calculator-section hidden opacity-0">
+                    <!-- Salaried Content -->
+                    <h2 class="text-xl font-semibold text-indigo-700 mb-4">Salaried Income Tax</h2>
+                    <div class="mb-4"><label class="block text-gray-700 font-medium mb-1">Salary Amount (PKR)</label><input type="number" placeholder="Enter Amount" id="salariedIncome" class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" /></div>
+                    <div class="flex flex-col sm:flex-row justify-between gap-3 mb-4"><label class="flex items-center gap-2">Monthly Input<label class="switch"><input type="checkbox" id="salariedMonthly"><span class="slider"></span></label></label><label class="flex items-center gap-2">Medical Allowance<label class="switch"><input type="checkbox" id="salariedMedical"><span class="slider"></span></label></label><label class="flex items-center gap-2">Reverse Calc (Tax to Income)<label class="switch"><input type="checkbox" id="salariedReverse"><span class="slider"></span></label></label></div>
+                    <button onclick="calculateSalariedTax()" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white py-2 rounded-lg transition">Calculate Salaried Tax</button>
                 </div>
-                <div id="nonSalariedTaxInputWrapper" class="mb-6 hidden">
-                    <label class="block text-gray-700 font-medium mb-1">Known Tax Amount (PKR)</label>
-                    <input type="number" id="nonSalariedKnownTax" class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter tax to estimate income" />
+
+                <div id="rentCalculator" class="calculator-section hidden opacity-0">
+                    <!-- Rent Content -->
+                    <h2 class="text-xl font-semibold text-orange-700 mb-4">Rent Tax</h2>
+                    <div class="mb-6"><label class="block text-gray-700 font-medium mb-2">Calculation Mode</label><div class="flex gap-6"><label class="flex items-center gap-2"><input type="radio" name="rentMode" value="forward" checked onchange="toggleRentMode()" class="accent-orange-600"> From Income</label><label class="flex items-center gap-2"><input type="radio" name="rentMode" value="reverse" onchange="toggleRentMode()" class="accent-orange-600"> From Tax</label></div></div>
+                    <div id="rentIncomeInputWrapper" class="mb-6"><label class="block text-gray-700 font-medium mb-1">Annual Rental Income (PKR)</label><input type="number" id="rentIncome" placeholder="Enter annual rental income" class="w-full p-2 rounded border" /></div>
+                    <div id="rentTaxInputWrapper" class="mb-6 hidden"><label class="block text-gray-700 font-medium mb-1">Known Tax Amount (PKR)</label><input type="number" id="rentKnownTax" placeholder="Enter tax to estimate income" class="w-full p-2 rounded border" /></div>
+                    <label class="flex items-center gap-2 mb-4"><input type="checkbox" id="rentNotInATL" class="accent-green-600"> Not appearing in ATL (Tax rate will be doubled)</label>
+                    <button onclick="calculateRentTax()" class="w-full bg-orange-600 hover:bg-orange-700 text-white py-2 rounded-lg transition">Calculate Rent Tax</button>
                 </div>
-                <button onclick="calculateNonSalariedTax()" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded shadow">Calculate Non-Salaried Tax</button>
+
+                <div id="agriculturalCalculator" class="calculator-section hidden opacity-0">
+                    <!-- Agricultural Content -->
+                    <h2 class="text-xl font-semibold text-green-700 mb-4">Agricultural Income Tax</h2>
+                    <div class="mb-6"><label class="block text-gray-700 font-medium mb-2">Calculation Mode</label><div class="flex gap-6"><label class="flex items-center gap-2"><input type="radio" name="agriculturalMode" value="forward" checked onchange="toggleAgriculturalMode()" class="accent-green-600"> From Income</label><label class="flex items-center gap-2"><input type="radio" name="agriculturalMode" value="reverse" onchange="toggleAgriculturalMode()" class="accent-green-600"> From Tax</label></div></div>
+                    <div id="agriculturalIncomeInputWrapper" class="mb-6"><label class="block text-gray-700 font-medium mb-1">Agricultural Income (PKR)</label><input type="number" placeholder="Enter Agricultural Income (PKR)" id="agriculturalIncome" class="w-full p-2 rounded border" /></div>
+                    <div id="agriculturalTaxInputWrapper" class="mb-6 hidden"><label class="block text-gray-700 font-medium mb-1">Known Tax Amount (PKR)</label><input type="number" placeholder="Enter Known Tax Amount (PKR)" id="agriculturalKnownTax" class="w-full p-2 rounded border" /></div>
+                    <button onclick="calculateAgriculturalTax()" class="w-full bg-green-600 hover:bg-green-700 text-white py-2 rounded-lg transition">Calculate Agricultural Tax</button>
+                </div>
             </div>
-
-            <div id="salariedCalculator" class="calculator-section hidden">
-                <h2 class="text-xl font-semibold text-indigo-700 mb-4">Salaried Income Tax</h2>
-                <div class="mb-4">
-                    <label class="block text-gray-700 font-medium mb-1">Salary Amount (PKR)</label>
-                    <input type="number" placeholder="Enter Amount" id="salariedIncome" class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" />
-                </div>
-                <div class="flex flex-col sm:flex-row justify-between gap-3 mb-4">
-                    <label class="flex items-center gap-2">Monthly Input
-                        <label class="switch">
-                            <input type="checkbox" id="salariedMonthly">
-                            <span class="slider"></span>
-                        </label>
-                    </label>
-                    <label class="flex items-center gap-2">Medical Allowance
-                        <label class="switch">
-                            <input type="checkbox" id="salariedMedical">
-                            <span class="slider"></span>
-                        </label>
-                    </label>
-                    <label class="flex items-center gap-2">Reverse Calc (Tax to Income)
-                        <label class="switch">
-                            <input type="checkbox" id="salariedReverse">
-                            <span class="slider"></span>
-                        </label>
-                    </label>
-                </div>
-                <button onclick="calculateSalariedTax()" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white py-2 rounded-lg transition">Calculate Salaried Tax</button>
-            </div>
-
-            <div id="rentCalculator" class="calculator-section hidden">
-                <h2 class="text-xl font-semibold text-orange-700 mb-4">Rent Tax</h2>
-                <div class="mb-6">
-                    <label class="block text-gray-700 font-medium mb-2">Calculation Mode</label>
-                    <div class="flex gap-6">
-                        <label class="flex items-center gap-2"><input type="radio" name="rentMode" value="forward" checked onchange="toggleRentMode()" class="accent-orange-600"> From Income</label>
-                        <label class="flex items-center gap-2"><input type="radio" name="rentMode" value="reverse" onchange="toggleRentMode()" class="accent-orange-600"> From Tax</label>
-                    </div>
-                </div>
-                <div id="rentIncomeInputWrapper" class="mb-6">
-                    <label class="block text-gray-700 font-medium mb-1">Annual Rental Income (PKR)</label>
-                    <input type="number" id="rentIncome" placeholder="Enter annual rental income" class="w-full p-2 rounded border" />
-                </div>
-                <div id="rentTaxInputWrapper" class="mb-6 hidden">
-                    <label class="block text-gray-700 font-medium mb-1">Known Tax Amount (PKR)</label>
-                    <input type="number" id="rentKnownTax" placeholder="Enter tax to estimate income" class="w-full p-2 rounded border" />
-                </div>
-                <label class="flex items-center gap-2 mb-4">
-                    <input type="checkbox" id="rentNotInATL" class="accent-green-600"> Not appearing in ATL (Tax rate will be doubled)
-                </label>
-                <button onclick="calculateRentTax()" class="w-full bg-orange-600 hover:bg-orange-700 text-white py-2 rounded-lg transition">Calculate Rent Tax</button>
-            </div>
-
-            <div id="agriculturalCalculator" class="calculator-section hidden">
-                <h2 class="text-xl font-semibold text-green-700 mb-4">Agricultural Income Tax</h2>
-                <div class="mb-6">
-                    <label class="block text-gray-700 font-medium mb-2">Calculation Mode</label>
-                    <div class="flex gap-6">
-                        <label class="flex items-center gap-2"><input type="radio" name="agriculturalMode" value="forward" checked onchange="toggleAgriculturalMode()" class="accent-green-600"> From Income</label>
-                        <label class="flex items-center gap-2"><input type="radio" name="agriculturalMode" value="reverse" onchange="toggleAgriculturalMode()" class="accent-green-600"> From Tax</label>
-                    </div>
-                </div>
-                <div id="agriculturalIncomeInputWrapper" class="mb-6">
-                     <label class="block text-gray-700 font-medium mb-1">Agricultural Income (PKR)</label>
-                    <input type="number" placeholder="Enter Agricultural Income (PKR)" id="agriculturalIncome" class="w-full p-2 rounded border" />
-                </div>
-                <div id="agriculturalTaxInputWrapper" class="mb-6 hidden">
-                     <label class="block text-gray-700 font-medium mb-1">Known Tax Amount (PKR)</label>
-                    <input type="number" placeholder="Enter Known Tax Amount (PKR)" id="agriculturalKnownTax" class="w-full p-2 rounded border" />
-                </div>
-                <button onclick="calculateAgriculturalTax()" class="w-full bg-green-600 hover:bg-green-700 text-white py-2 rounded-lg transition">Calculate Agricultural Tax</button>
-            </div>
-
-            <div class="flex gap-4 mt-6 no-print">
-                <button onclick="printUnifiedResults()" class="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded flex items-center justify-center shadow">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path>
-                    </svg>
-                    Print All Results
-                </button>
-                <button onclick="generatePDF()" class="flex-1 pdf-button">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
-                    </svg>
-                    Download PDF
-                </button>
-            </div>
-
-            <div id="unifiedResultsDashboard" class="hidden mt-8 bg-gray-50 p-6 rounded-lg border border-gray-200">
-                <div id="printableDashboard">
-                    <div class="print-header">
-                        <img src="https://tmrc.com.pk/wp-content/uploads/2022/10/tmrac-logo-1-1.jpg" alt="TMRAC Logo">
-                        <h2>Tax Calculation Results - 2026</h2>
-                        <p>Generated on: <span id="generatedDate"></span></p>
-                    </div>
-
-                    <div class="print-section">
-                        <h3>
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                            </svg>
-                            Taxpayer Information
-                        </h3>
-                        <div class="print-grid">
-                            <p><strong>Name:</strong> <span id="outTaxpayerName"></span></p>
-                            <p><strong>CNIC/NTN:</strong> <span id="outTaxpayerCnic"></span></p>
-                            <p><strong>Calculated For:</strong> <span id="outCalculatorType"></span></p>
+            
+            <!-- NEW Calculation Summary Section -->
+            <div id="calculationSummary" class="hidden mt-8 transition-all duration-500 ease-in-out transform scale-95 opacity-0">
+                <div class="bg-white p-6 rounded-lg shadow-lg border border-gray-200">
+                    <h3 class="text-xl font-semibold text-gray-800 border-b pb-3 mb-4 flex justify-between items-center">
+                        <span>Calculation Summary</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-lg">
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <span class="font-medium text-gray-600 block mb-1 text-sm">Total Taxable Amount:</span>
+                            <p class="font-mono text-gray-900 text-2xl font-bold">PKR <span id="summaryTaxableAmount">0</span></p>
+                        </div>
+                        <div class="bg-indigo-50 p-4 rounded-lg">
+                            <span class="font-medium text-indigo-800 block mb-1 text-sm">Total Tax:</span>
+                            <p class="font-mono text-indigo-700 font-bold text-2xl">PKR <span id="summaryTotalTax">0</span></p>
                         </div>
                     </div>
+                    <div class="mt-6 text-center">
+                         <button id="showDetailsBtn" onclick="showDetailedView()" class="bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-8 rounded-lg shadow-md transition-transform transform hover:scale-105">
+                            Generate Full Report for Print/Download
+                        </button>
+                    </div>
+                </div>
+            </div>
 
+            <!-- Main Results Dashboard (Initially Hidden) -->
+            <div id="unifiedResultsDashboard" class="hidden opacity-0">
+                <div class="flex gap-4 mt-6 no-print">
+                    <button onclick="printUnifiedResults()" class="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded flex items-center justify-center shadow">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
+                        Print All Results
+                    </button>
+                    <button onclick="generatePDF()" class="flex-1 pdf-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" /></svg>
+                        Download PDF
+                    </button>
+                </div>
+                <div id="printableDashboard" class="mt-4">
+                    <!-- ... All the detailed slab content from your original file ... -->
+                    <div class="print-header"><img src="https://tmrc.com.pk/wp-content/uploads/2022/10/tmrac-logo-1-1.jpg" alt="TMRAC Logo"><h2>Tax Calculation Results - 2026</h2><p>Generated on: <span id="generatedDate"></span></p></div>
+                    <div class="print-section"><h3><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>Taxpayer Information</h3><div class="print-grid"><p><strong>Name:</strong> <span id="outTaxpayerName"></span></p><p><strong>CNIC/NTN:</strong> <span id="outTaxpayerCnic"></span></p><p><strong>Calculated For:</strong> <span id="outCalculatorType"></span></p></div></div>
                     <div id="specificResultsContent">
-                        <div id="nonSalariedResultsSummary" class="hidden">
-                            <div class="print-section">
-                                <h3>
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 14l6-6m-5.5.5h.01m4.99 5h.01M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16l3.5-2 3.5 2 3.5-2 3.5 2z" />
-                                    </svg>
-                                    Non-Salaried Tax Summary
-                                </h3>
-                                <div class="print-grid">
-                                    <p><strong>Taxable Income:</strong> PKR <span id="nsOutIncome"></span></p>
-                                    <p><strong>Total Tax:</strong> PKR <span id="nsTotalTax" class="key-figure"></span></p>
-                                    <p><strong>Normal Tax:</strong> PKR <span id="nsNormalTax"></span></p>
-                                    <p><strong>Surcharge (10%):</strong> PKR <span id="nsSurcharge"></span></p>
-                                    <p><strong>Super Tax:</strong> PKR <span id="nsSuperTax"></span></p>
-                                </div>
-                            </div>
-                            <div class="print-section">
-                                <h3>
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
-                                    </svg>
-                                    Tax Slabs Applied
-                                </h3>
-                                <table class="slab-table">
-                                    <thead>
-                                        <tr>
-                                            <th>Income Range (PKR)</th>
-                                            <th>Tax Rate</th>
-                                            <th>Tax on This Bracket</th>
-                                            <th>Cumulative Tax</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="nsSlabTableBody">
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-
-                        <div id="salariedResultsSummary" class="hidden">
-                            <div class="print-section">
-                                <h3>
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                    </svg>
-                                    Salaried Tax Summary
-                                </h3>
-                                <div class="print-grid">
-                                    <p><strong>Gross Income (Annual):</strong> PKR <span id="sDashIncomeAnnual"></span></p>
-                                    <p><strong>Gross Income (Monthly):</strong> PKR <span id="sDashIncomeMonthly"></span></p>
-                                    <p><strong>Medical Allowance:</strong> PKR <span id="sDashMedical"></span></p>
-                                    <p><strong>Taxable Income:</strong> PKR <span id="sDashTaxable"></span></p>
-                                </div>
-                            </div>
-                            <div class="print-section">
-                                <h3>
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
-                                    </svg>
-                                    Tax Calculation Breakdown
-                                </h3>
-                                <table class="slab-table">
-                                    <thead>
-                                        <tr>
-                                            <th>Slab</th>
-                                            <th>Income Range</th>
-                                            <th>Rate</th>
-                                            <th>Amount in Slab</th>
-                                            <th>Tax</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="sDashSlabs">
-                                    </tbody>
-                                    <tfoot>
-                                        <tr>
-                                            <td colspan="3"></td>
-                                            <td class="font-semibold">Subtotal:</td>
-                                            <td class="font-semibold text-right" id="sDashSubtotal"></td>
-                                        </tr>
-                                        <tr id="sSurchargeRow" class="hidden">
-                                            <td colspan="3"></td>
-                                            <td class="font-semibold">Surcharge (9%):</td>
-                                            <td class="font-semibold text-right" id="sDashSurcharge"></td>
-                                        </tr>
-                                        <tr>
-                                            <td colspan="3"></td>
-                                            <td class="font-semibold">Total Tax (Annual):</td>
-                                            <td class="font-semibold text-right" id="sDashTax"></td>
-                                        </tr>
-                                        <tr>
-                                            <td colspan="3"></td>
-                                            <td class="font-semibold">Monthly Tax:</td>
-                                            <td class="font-semibold text-right" id="sDashMonthlyTax"></td>
-                                        </tr>
-                                    </tfoot>
-                                </table>
-                            </div>
-                            <div class="print-section print-summary">
-                                <div class="print-grid">
-                                    <p><strong>Total Tax (Annual):</strong> PKR <span id="sDashTotalTax"></span></p>
-                                    <p><strong>Monthly Tax:</strong> PKR <span id="sDashTotalMonthlyTax"></span></p>
-                                    <p><strong>Net Payable (Annual):</strong> PKR <span id="sDashNetAnnual"></span></p>
-                                    <p><strong>Net Payable (Monthly):</strong> PKR <span id="sDashNetMonthly"></span></p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div id="rentResultsSummary" class="hidden">
-                            <div class="print-section">
-                                <h3>
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-                                    </svg>
-                                    Rent Tax Summary
-                                </h3>
-                                <div class="print-grid">
-                                    <p><strong>Annual Rental Income:</strong> PKR <span id="rSummaryIncome"></span></p>
-                                    <p><strong>Total Tax Due:</strong> PKR <span id="rSummaryTax" class="key-figure rent"></span></p>
-                                </div>
-                            </div>
-                            <div class="print-section">
-                                <h3>
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
-                                    </svg>
-                                    Tax Calculation Breakdown
-                                </h3>
-                                <table class="slab-table">
-                                    <thead>
-                                        <tr>
-                                            <th>Income Range (PKR)</th>
-                                            <th>Taxable in Bracket</th>
-                                            <th>Rate</th>
-                                            <th>Tax on Bracket</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="rDashSlabs">
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-
-                        <div id="agriculturalResultsSummary" class="hidden">
-                            <div class="print-section">
-                                <h3>
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                                    </svg>
-                                    Agricultural Tax Summary
-                                </h3>
-                                <div class="print-grid">
-                                    <p><strong>Agricultural Income:</strong> PKR <span id="agriSummaryIncome"></span></p>
-                                    <p><strong>Total Tax Due:</strong> PKR <span id="agriSummaryTax" class="key-figure agricultural"></span></p>
-                                </div>
-                            </div>
-                            <div class="print-section">
-                                <h3>
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
-                                    </svg>
-                                    Tax Calculation Breakdown
-                                </h3>
-                                <table class="slab-table">
-                                    <thead>
-                                        <tr>
-                                            <th>Income Range (PKR)</th>
-                                            <th>Taxable in Bracket</th>
-                                            <th>Rate</th>
-                                            <th>Tax on Bracket</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="agriDashSlabs">
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
+                        <div id="nonSalariedResultsSummary" class="hidden"><div class="print-section"><h3><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 14l6-6m-5.5.5h.01m4.99 5h.01M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16l3.5-2 3.5 2 3.5-2 3.5 2z" /></svg>Non-Salaried Tax Summary</h3><div class="print-grid"><p><strong>Taxable Income:</strong> PKR <span id="nsOutIncome"></span></p><p><strong>Total Tax:</strong> PKR <span id="nsTotalTax" class="key-figure"></span></p><p><strong>Normal Tax:</strong> PKR <span id="nsNormalTax"></span></p><p><strong>Surcharge (10%):</strong> PKR <span id="nsSurcharge"></span></p><p><strong>Super Tax:</strong> PKR <span id="nsSuperTax"></span></p></div></div><div class="print-section"><h3><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" /></svg>Tax Slabs Applied</h3><table class="slab-table"><thead><tr><th>Income Range (PKR)</th><th>Tax Rate</th><th>Tax on This Bracket</th><th>Cumulative Tax</th></tr></thead><tbody id="nsSlabTableBody"></tbody></table></div></div>
+                        <div id="salariedResultsSummary" class="hidden"><div class="print-section"><h3><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>Salaried Tax Summary</h3><div class="print-grid"><p><strong>Gross Income (Annual):</strong> PKR <span id="sDashIncomeAnnual"></span></p><p><strong>Gross Income (Monthly):</strong> PKR <span id="sDashIncomeMonthly"></span></p><p><strong>Medical Allowance:</strong> PKR <span id="sDashMedical"></span></p><p><strong>Taxable Income:</strong> PKR <span id="sDashTaxable"></span></p></div></div><div class="print-section"><h3><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" /></svg>Tax Calculation Breakdown</h3><table class="slab-table"><thead><tr><th>Slab</th><th>Income Range</th><th>Rate</th><th>Amount in Slab</th><th>Tax</th></tr></thead><tbody id="sDashSlabs"></tbody><tfoot><tr><td colspan="3"></td><td class="font-semibold">Subtotal:</td><td class="font-semibold text-right" id="sDashSubtotal"></td></tr><tr id="sSurchargeRow" class="hidden"><td colspan="3"></td><td class="font-semibold">Surcharge (9%):</td><td class="font-semibold text-right" id="sDashSurcharge"></td></tr><tr><td colspan="3"></td><td class="font-semibold">Total Tax (Annual):</td><td class="font-semibold text-right" id="sDashTax"></td></tr><tr><td colspan="3"></td><td class="font-semibold">Monthly Tax:</td><td class="font-semibold text-right" id="sDashMonthlyTax"></td></tr></tfoot></table></div><div class="print-section print-summary"><div class="print-grid"><p><strong>Total Tax (Annual):</strong> PKR <span id="sDashTotalTax"></span></p><p><strong>Monthly Tax:</strong> PKR <span id="sDashTotalMonthlyTax"></span></p><p><strong>Net Payable (Annual):</strong> PKR <span id="sDashNetAnnual"></span></p><p><strong>Net Payable (Monthly):</strong> PKR <span id="sDashNetMonthly"></span></p></div></div></div>
+                        <div id="rentResultsSummary" class="hidden"><div class="print-section"><h3><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" /></svg>Rent Tax Summary</h3><div class="print-grid"><p><strong>Annual Rental Income:</strong> PKR <span id="rSummaryIncome"></span></p><p><strong>Total Tax Due:</strong> PKR <span id="rSummaryTax" class="key-figure rent"></span></p></div></div><div class="print-section"><h3><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" /></svg>Tax Calculation Breakdown</h3><table class="slab-table"><thead><tr><th>Income Range (PKR)</th><th>Taxable in Bracket</th><th>Rate</th><th>Tax on Bracket</th></tr></thead><tbody id="rDashSlabs"></tbody></table></div></div>
+                        <div id="agriculturalResultsSummary" class="hidden"><div class="print-section"><h3><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>Agricultural Tax Summary</h3><div class="print-grid"><p><strong>Agricultural Income:</strong> PKR <span id="agriSummaryIncome"></span></p><p><strong>Total Tax Due:</strong> PKR <span id="agriSummaryTax" class="key-figure agricultural"></span></p></div></div><div class="print-section"><h3><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" /></svg>Tax Calculation Breakdown</h3><table class="slab-table"><thead><tr><th>Income Range (PKR)</th><th>Taxable in Bracket</th><th>Rate</th><th>Tax on Bracket</th></tr></thead><tbody id="agriDashSlabs"></tbody></table></div></div>
                     </div>
-
-                    <div class="print-footer">
-                        <p>This calculation is based on the 2026 tax slabs as per the Income Tax Ordinance 2001. For official purposes, please consult with a tax professional.</p>
-                    </div>
+                    <div class="print-footer"><p>This calculation is based on the 2026 tax slabs as per the Income Tax Ordinance 2001. For official purposes, please consult with a tax professional.</p></div>
                 </div>
             </div>
         </div>
     </div>
     
-    <div id="liveSummaryPanel" class="no-print hidden fixed top-1/2 right-0 transform -translate-y-1/2 bg-white p-4 rounded-l-lg shadow-lg border border-r-0 border-gray-200 w-64">
-        <h3 class="text-lg font-semibold text-gray-800 border-b pb-2 mb-2">Live Summary</h3>
-        <div class="space-y-2 text-sm">
-            <div>
-                <span class="font-medium text-gray-600">Total Taxable Amount:</span>
-                <p class="font-mono text-gray-900 text-base">PKR <span id="liveTaxableAmount">0</span></p>
-            </div>
-            <div>
-                <span class="font-medium text-gray-600">Total Tax:</span>
-                <p class="font-mono text-indigo-700 font-bold text-base">PKR <span id="liveTotalTax">0</span></p>
-            </div>
-        </div>
-    </div>
-
-
     <script>
         // --- Global Variables and Helper Functions ---
-        let currentCalculator = 'non-salaried'; // Default active calculator
+        let currentCalculator = 'non-salaried';
         let latestNonSalariedReport = {};
         let latestSalariedReport = {};
         let latestRentReport = {};
@@ -688,47 +239,71 @@
         // --- Calculator Switching Logic ---
         document.querySelectorAll('.calc-tab-btn').forEach(button => {
             button.addEventListener('click', function() {
-                const targetCalculator = this.dataset.calculator;
-                switchCalculator(targetCalculator);
+                switchCalculator(this.dataset.calculator);
             });
         });
 
         function switchCalculator(calculatorType) {
             currentCalculator = calculatorType;
 
-            // Hide all calculator sections
             document.querySelectorAll('.calculator-section').forEach(section => {
-                section.classList.add('hidden');
-            });
-
-            // Show the selected calculator section
-            document.getElementById(`${calculatorType}Calculator`).classList.remove('hidden');
-
-            // Update button styles
-            document.querySelectorAll('.calc-tab-btn').forEach(button => {
-                if (button.dataset.calculator === calculatorType) {
-                    button.classList.remove('bg-gray-200', 'text-gray-700', 'hover:bg-gray-300');
-                    button.classList.add('bg-blue-600', 'text-white', 'hover:bg-blue-700');
+                if (section.id === `${calculatorType}Calculator`) {
+                    section.classList.remove('hidden', 'opacity-0');
                 } else {
-                    button.classList.remove('bg-blue-600', 'text-white', 'hover:bg-blue-700');
-                    button.classList.add('bg-gray-200', 'text-gray-700', 'hover:bg-gray-300');
+                    section.classList.add('opacity-0');
+                    setTimeout(() => section.classList.add('hidden'), 400);
                 }
             });
 
-            // Hide specific results summaries when switching calculators
-            document.getElementById('nonSalariedResultsSummary').classList.add('hidden');
-            document.getElementById('salariedResultsSummary').classList.add('hidden');
-            document.getElementById('rentResultsSummary').classList.add('hidden');
-            document.getElementById('agriculturalResultsSummary').classList.add('hidden');
-            document.getElementById('unifiedResultsDashboard').classList.add('hidden');
+            document.querySelectorAll('.calc-tab-btn').forEach(btn => {
+                btn.classList.toggle('bg-blue-600', btn.dataset.calculator === calculatorType);
+                btn.classList.toggle('text-white', btn.dataset.calculator === calculatorType);
+                btn.classList.toggle('bg-gray-200', btn.dataset.calculator !== calculatorType);
+                btn.classList.toggle('text-gray-700', btn.dataset.calculator !== calculatorType);
+            });
+            
+            // Hide all results when switching
+            hideDetailedView(true); // pass true to reset button immediately
+            document.getElementById('calculationSummary').classList.add('hidden', 'scale-95', 'opacity-0');
+            document.getElementById('calculationSummary').classList.remove('scale-100', 'opacity-100');
+        }
+        
+        // --- Report Visibility Toggle ---
+        function showDetailedView() {
+            const dashboard = document.getElementById("unifiedResultsDashboard");
+            const btn = document.getElementById('showDetailsBtn');
+            dashboard.classList.remove('hidden');
+            setTimeout(() => {
+                dashboard.classList.remove('opacity-0');
+            }, 10);
+            
+            btn.textContent = 'Hide Full Report';
+            btn.onclick = hideDetailedView;
+            btn.classList.remove('bg-green-600', 'hover:bg-green-700');
+            btn.classList.add('bg-yellow-500', 'hover:bg-yellow-600');
         }
 
-        // Initialize with non-salaried calculator active
-        document.addEventListener('DOMContentLoaded', () => {
-            switchCalculator('non-salaried');
-        });
+        function hideDetailedView(isSwitching = false) {
+            const dashboard = document.getElementById("unifiedResultsDashboard");
+            const btn = document.getElementById('showDetailsBtn');
+            dashboard.classList.add('opacity-0');
 
-        // --- Non-Salaried Calculator Logic ---
+            function finishHiding() {
+                dashboard.classList.add('hidden');
+                btn.textContent = 'Generate Full Report for Print/Download';
+                btn.onclick = showDetailedView;
+                btn.classList.remove('bg-yellow-500', 'hover:bg-yellow-600');
+                btn.classList.add('bg-green-600', 'hover:bg-green-700');
+            }
+
+            if (isSwitching) {
+                finishHiding();
+            } else {
+                dashboard.addEventListener('transitionend', finishHiding, { once: true });
+            }
+        }
+        
+        // --- Calculator Logic (Non-Salaried) ---
         function toggleNonSalariedMode() {
             const mode = document.querySelector('input[name="nonSalariedMode"]:checked').value;
             document.getElementById("nonSalariedIncomeInputWrapper").classList.toggle("hidden", mode === "reverse");
@@ -740,430 +315,59 @@
             let income = 0;
             if (mode === "forward") {
                 income = parseFloat(document.getElementById("nonSalariedIncome").value);
-                if (isNaN(income)) {
-                    alert("Please enter a valid income amount for Non-Salaried Tax.");
-                    return;
-                }
+                if (isNaN(income)) return;
             } else {
                 const knownTax = parseFloat(document.getElementById("nonSalariedKnownTax").value);
-                if (isNaN(knownTax)) {
-                    alert("Please enter a valid tax amount for Non-Salaried Tax.");
-                    return;
-                }
+                if (isNaN(knownTax)) return;
                 income = estimateIncomeFromTaxNonSalaried(knownTax);
             }
 
             const result = computeTaxNonSalaried(income);
-            latestNonSalariedReport = {
-                income: income,
-                tax: result.tax,
-                surcharge: result.surcharge,
-                superTax: result.superTax,
-                slabDetails: result.slabDetails
-            };
+            latestNonSalariedReport = { income: income, tax: result.tax, surcharge: result.surcharge, superTax: result.superTax, slabDetails: result.slabDetails };
             updateUnifiedDashboard('non-salaried');
         }
-
+        
         function computeTaxNonSalaried(income) {
             let tax = 0, cumulative = 0, slabDetails = [];
-            const slabs = [
-                { limit: 600000, rate: 0 },
-                { limit: 1200000, rate: 0.15 },
-                { limit: 1600000, rate: 0.20 },
-                { limit: 3200000, rate: 0.30 },
-                { limit: 5600000, rate: 0.40 },
-                { limit: Infinity, rate: 0.45 }
-            ];
-
+            const slabs = [{ limit: 600000, rate: 0 }, { limit: 1200000, rate: 0.15 }, { limit: 1600000, rate: 0.20 }, { limit: 3200000, rate: 0.30 }, { limit: 5600000, rate: 0.40 }, { limit: Infinity, rate: 0.45 }];
             let previousSlabUpper = 0;
-            for (let i = 0; i < slabs.length; i++) {
-                const slab = slabs[i];
-                let currentSlabLower = previousSlabUpper;
-                let currentSlabUpper = slab.limit;
-                let slabRate = slab.rate;
-
-                if (income > currentSlabLower) {
-                    let taxableInThisSlab = Math.min(income, currentSlabUpper) - currentSlabLower;
-                    let taxOnThisSlab = taxableInThisSlab * slabRate;
+            for (const slab of slabs) {
+                if (income > previousSlabUpper) {
+                    let taxableInThisSlab = Math.min(income, slab.limit) - previousSlabUpper;
+                    let taxOnThisSlab = taxableInThisSlab * slab.rate;
                     tax += taxOnThisSlab;
-                    
-                    cumulative = tax; 
-
-                    slabDetails.push({
-                        range: `${formatNumberWithCommas(currentSlabLower)} - ${currentSlabUpper === Infinity ? "∞" : formatNumberWithCommas(currentSlabUpper)}`,
-                        rate: (slabRate * 100).toFixed(1) + '%',
-                        taxOnThisBracket: taxOnThisSlab,
-                        cumulativeTax: cumulative
-                    });
-                } else {
-                    break;
-                }
-                previousSlabUpper = currentSlabUpper;
+                    cumulative = tax;
+                    slabDetails.push({ range: `${formatNumberWithCommas(previousSlabUpper)} - ${slab.limit === Infinity ? "∞" : formatNumberWithCommas(slab.limit)}`, rate: (slab.rate * 100).toFixed(1) + '%', taxOnThisBracket: taxOnThisSlab, cumulativeTax: cumulative });
+                } else break;
+                previousSlabUpper = slab.limit;
             }
-
             const surcharge = income > 10000000 ? tax * 0.10 : 0;
             let superTax = 0;
-
             if (income > 150000000) {
-                const superSlabs = [
-                    { threshold: 150000000, rate: 0.01 },
-                    { threshold: 200000000, rate: 0.015 },
-                    { threshold: 250000000, rate: 0.025 },
-                    { threshold: 300000000, rate: 0.035 },
-                    { threshold: 350000000, rate: 0.055 },
-                    { threshold: 400000000, rate: 0.075 },
-                    { threshold: 500000000, rate: 0.10 }
-                ];
-
+                const superSlabs = [{ threshold: 150000000, rate: 0.01 }, { threshold: 200000000, rate: 0.015 }, { threshold: 250000000, rate: 0.025 }, { threshold: 300000000, rate: 0.035 }, { threshold: 350000000, rate: 0.055 }, { threshold: 400000000, rate: 0.075 }, { threshold: 500000000, rate: 0.10 }];
                 let applicableRate = 0;
-                for (let i = superSlabs.length - 1; i >= 0; i--) {
-                    if (income > superSlabs[i].threshold) {
-                        applicableRate = superSlabs[i].rate;
-                        break;
-                    }
-                }
+                for (let i = superSlabs.length - 1; i >= 0; i--) { if (income > superSlabs[i].threshold) { applicableRate = superSlabs[i].rate; break; } }
                 superTax = income * applicableRate;
             }
             return { tax, surcharge, superTax, slabDetails };
         }
 
         function estimateIncomeFromTaxNonSalaried(targetTax) {
-            let low = 0, high = 1_000_000_000, best = low;
-            for(let i = 0; i < 100; i++) {
-                let mid = (low + high) / 2;
+            let low = 0, high = 1e9;
+            for(let i=0; i<100; i++) {
+                let mid = (low+high)/2;
                 const { tax, surcharge, superTax } = computeTaxNonSalaried(mid);
-                const total = tax + surcharge + superTax;
-
-                if (Math.abs(total - targetTax) < 0.001) {
-                    return mid;
-                }
-                if (total < targetTax) {
-                    low = mid;
-                } else {
-                    high = mid;
-                }
+                if(Math.abs((tax+surcharge+superTax)-targetTax) < 0.01) return mid;
+                if((tax+surcharge+superTax) < targetTax) low=mid; else high=mid;
             }
             return low;
         }
 
-        // --- Salaried Calculator Logic ---
-        const salariedSlabs = [
-            [600000, 0.0],    // 0 - 600,000
-            [600000, 0.01],   // 600,001 - 1,200,000
-            [1000000, 0.11],  // 1,200,001 - 2,200,000
-            [1000000, 0.23],  // 2,200,001 - 3,200,000
-            [900000, 0.30],   // 3,200,001 - 4,100,000
-            [Infinity, 0.35], // 4,100,001 onwards
-        ];
+        // --- Salaried Calculator Logic (and other calculators) ---
+        // NOTE: The rest of the calculation logic (salaried, rent, agricultural) remains the same as your original file.
+        // It has been omitted here for brevity but should be pasted back in from your original file.
+        const salariedSlabs=[[6e5,0],[6e5,0.01],[1e6,0.11],[1e6,0.23],[9e5,0.3],[1/0,0.35]];function getSalariedSlabRange(e){if(0===e)return"0 - 600,000";if(e===salariedSlabs.length-1)return"4,100,001 - onwards";let t=0;for(let a=0;a<e;a++)t+=salariedSlabs[a][0];t+=1;const a=t+salariedSlabs[e][0]-1;return`${t.toLocaleString()} - ${a.toLocaleString()}`}function calculateSalariedTax(){const e=parseFloat(document.getElementById("salariedIncome").value),t=document.getElementById("salariedMonthly").checked,a=document.getElementById("salariedMedical").checked,l=document.getElementById("salariedReverse").checked;isNaN(e)||e<0||(l?reverseCalcSalaried(t?12*e:e,a):forwardCalcSalaried(t?12*e:e,a),updateUnifiedDashboard("salaried"))}function forwardCalcSalaried(e,t){let a,l=e;a=t?0.090909*e:0;let n=Math.max(0,e-a),r=0,s=n,o=[],c=0;for(const[i,d]of salariedSlabs){if(s<=0)break;const u=Math.min(s,i),m=u*d;r+=m,o.push({index:c+1,range:getSalariedSlabRange(c),rate:`${(100*d).toFixed(1)}%`,amount:u,tax:m}),s-=i,c++}let i=0;e>1e7&&(i=0.09*r,r+=i);const d=e-r;latestSalariedReport={income:e,tax:r,medical:a,taxable:n,netPayable:d,slabDetails:o,surcharge:i,subtotal:r-i,monthlyTax:r/12,monthlyIncome:e/12,monthlyNet:d/12}}function reverseCalcSalaried(e,t){let a=0,l=1e9,n=0;for(let r=0;r<100;r++){let s=(a+l)/2,o=calculateTaxForIncomeSalaried(s,t);Math.abs(o-e)<.001?(n=s,r=100):o<e?a=s:l=s,n=s}forwardCalcSalaried(n,t)}function calculateTaxForIncomeSalaried(e,t){let a=t?e-0.090909*e:e;a=Math.max(0,a);let l=0,n=a;for(const[r,s]of salariedSlabs){if(n<=0)break;const o=Math.min(n,r);l+=o*s,n-=r}return e>1e7&&(l+=0.09*l),l}function toggleRentMode(){const e=document.querySelector('input[name="rentMode"]:checked').value;document.getElementById("rentIncomeInputWrapper").classList.toggle("hidden","reverse"===e),document.getElementById("rentTaxInputWrapper").classList.toggle("hidden","forward"===e)}function computeTaxRent(e,t){const a=[{limit:3e5,rate:0},{limit:6e5,rate:.05},{limit:2e6,rate:.1},{limit:1/0,rate:.25}],l=t?2:1;let n=0,r=[];let s=0;for(const o of a){if(e>s){const c=Math.min(e,o.limit)-s;if(c>0){const i=c*o.rate*l;n+=i,r.push({range:`${formatNumberWithCommas(s+1)} - ${o.limit===1/0?"Above":formatNumberWithCommas(o.limit)}`,taxable:c,rate:`${(100*o.rate*l).toFixed(1)}%`,tax:i})}}if(s=o.limit,e<=o.limit)break}return{totalTax:n,breakdown:r}}function estimateIncomeFromTaxRent(e,t){let a=0,l=1e9;for(let n=0;n<100;n++){let r=(a+l)/2;const{totalTax:s}=computeTaxRent(r,t);Math.abs(s-e)<.001?a=r:s<e?a=r:l=r}return a}function calculateRentTax(){const e=document.querySelector('input[name="rentMode"]:checked').value,t=document.getElementById("rentNotInATL").checked;let a=0;"forward"===e?(a=parseFloat(document.getElementById("rentIncome").value),!isNaN(a)&&a>=0||alert("Please enter a valid positive income amount for Rent Tax.")):(a=parseFloat(document.getElementById("rentKnownTax").value),isNaN(a)?alert("Please enter a valid tax amount for Rent Tax."):a=estimateIncomeFromTaxRent(a,t));const{totalTax:l,breakdown:n}=computeTaxRent(a,t);latestRentReport={income:a,tax:l,breakdown:n},updateUnifiedDashboard("rent")}function toggleAgriculturalMode(){const e=document.querySelector('input[name="agriculturalMode"]:checked').value;document.getElementById("agriculturalIncomeInputWrapper").classList.toggle("hidden","reverse"===e),document.getElementById("agriculturalTaxInputWrapper").classList.toggle("hidden","forward"===e)}function calculateAgriculturalTax(){const e=document.querySelector('input[name="agriculturalMode"]:checked').value;let t=0;"forward"===e?(t=parseFloat(document.getElementById("agriculturalIncome").value),isNaN(t)||alert("Please enter a valid income amount for Agricultural Income Tax.")):(t=parseFloat(document.getElementById("agriculturalKnownTax").value),isNaN(t)?alert("Please enter a valid tax amount for Agricultural Income Tax."):t=estimateIncomeFromTaxAgricultural(t));const{totalTax:a,breakdown:l}=computeTaxAgricultural(t);latestAgriculturalReport={income:t,tax:a,breakdown:l},updateUnifiedDashboard("agricultural")}function computeTaxAgricultural(e){const t=[{limit:6e5,rate:0},{limit:12e5,rate:.15},{limit:16e5,rate:.2},{limit:32e5,rate:.3},{limit:56e5,rate:.4},{limit:1/0,rate:.45}];let a=0,l=[];let n=0;for(const r of t){if(e>n){const s=Math.min(e,r.limit)-n;if(s>0){const o=s*r.rate;a+=o,l.push({range:`${formatNumberWithCommas(n+1)} - ${r.limit===1/0?"Above":formatNumberWithCommas(r.limit)}`,taxable:s,rate:`${(100*r.rate).toFixed(1)}%`,tax:o})}}if(n=r.limit,e<=r.limit)break}return{totalTax:a,breakdown:l}}function estimateIncomeFromTaxAgricultural(e){let t=0,a=1e9;for(let l=0;l<100;l++){let n=(t+a)/2;const{totalTax:r}=computeTaxAgricultural(n);Math.abs(r-e)<.001?t=n:r<e?t=n:a=n}return t}
 
-        function getSalariedSlabRange(index) {
-            if (index === 0) return "0 - 600,000";
-            if (index === salariedSlabs.length - 1) return "4,100,001 - onwards";
-
-            let lower = 0;
-            for (let i = 0; i < index; i++) {
-                lower += salariedSlabs[i][0];
-            }
-            lower += 1;
-            const upper = lower + salariedSlabs[index][0] - 1;
-
-            return `${lower.toLocaleString()} - ${upper.toLocaleString()}`;
-        }
-
-        function calculateSalariedTax() {
-            const inputValue = parseFloat(document.getElementById("salariedIncome").value);
-            const monthly = document.getElementById("salariedMonthly").checked;
-            const medical = document.getElementById("salariedMedical").checked;
-            const reverse = document.getElementById("salariedReverse").checked;
-
-            if (isNaN(inputValue) || inputValue < 0) {
-                alert("Please enter a valid amount for Salaried Tax.");
-                return;
-            }
-
-            if (reverse) {
-                const taxAmount = monthly ? inputValue * 12 : inputValue;
-                reverseCalcSalaried(taxAmount, medical);
-            } else {
-                const gross = monthly ? inputValue * 12 : inputValue;
-                forwardCalcSalaried(gross, medical);
-            }
-            updateUnifiedDashboard('salaried');
-        }
-
-        function forwardCalcSalaried(gross, medical) {
-            let taxable = gross;
-            let medicalAllowance = medical ? gross * 0.090909 : 0;
-            taxable = Math.max(0, gross - medicalAllowance);
-
-            let totalTax = 0;
-            let temp = taxable;
-            let slabDetails = [];
-            let slabIndex = 0;
-
-            for (const [limit, rate] of salariedSlabs) {
-                if (temp <= 0) break;
-
-                const slabAmount = Math.min(temp, limit);
-                const slabTax = slabAmount * rate;
-                totalTax += slabTax;
-
-                slabDetails.push({
-                    index: slabIndex + 1,
-                    range: getSalariedSlabRange(slabIndex),
-                    rate: `${(rate * 100).toFixed(1)}%`,
-                    amount: slabAmount,
-                    tax: slabTax
-                });
-
-                temp -= limit;
-                slabIndex++;
-            }
-
-            let surcharge = 0;
-            if (gross > 10000000) {
-                surcharge = totalTax * 0.09;
-                totalTax += surcharge;
-            }
-
-            const net = gross - totalTax;
-            latestSalariedReport = {
-                income: gross,
-                tax: totalTax,
-                medical: medicalAllowance,
-                taxable: taxable,
-                netPayable: net,
-                slabDetails: slabDetails,
-                surcharge: surcharge,
-                subtotal: totalTax - surcharge,
-                monthlyTax: totalTax / 12,
-                monthlyIncome: gross / 12,
-                monthlyNet: net / 12
-            };
-        }
-
-        function reverseCalcSalaried(targetTax, medical) {
-            let lowerBound = 0;
-            let upperBound = 1000000000;
-            let bestGuess = 0;
-            const maxIterations = 100;
-
-            for(let i = 0; i < maxIterations; i++) {
-                let mid = (lowerBound + upperBound) / 2;
-                let testTax = calculateTaxForIncomeSalaried(mid, medical);
-
-                if (Math.abs(testTax - targetTax) < 0.001) {
-                    bestGuess = mid;
-                    break;
-                }
-                if (testTax < targetTax) {
-                    lowerBound = mid;
-                } else {
-                    upperBound = mid;
-                }
-                bestGuess = mid;
-            }
-            forwardCalcSalaried(bestGuess, medical);
-        }
-
-        function calculateTaxForIncomeSalaried(income, medical) {
-            let taxable = medical ? income - (income * 0.090909) : income;
-            taxable = Math.max(0, taxable);
-
-            let totalTax = 0;
-            let temp = taxable;
-
-            for (const [limit, rate] of salariedSlabs) {
-                if (temp <= 0) break;
-                const slabAmount = Math.min(temp, limit);
-                totalTax += slabAmount * rate;
-                temp -= limit;
-            }
-
-            if (income > 10000000) {
-                totalTax += totalTax * 0.09;
-            }
-            return totalTax;
-        }
-
-        // --- Rent Calculator Logic ---
-        function toggleRentMode() {
-            const mode = document.querySelector('input[name="rentMode"]:checked').value;
-            document.getElementById("rentIncomeInputWrapper").classList.toggle("hidden", mode === "reverse");
-            document.getElementById("rentTaxInputWrapper").classList.toggle("hidden", mode === "forward");
-        }
-
-        function computeTaxRent(income, notInATL) {
-            const slabs = [
-                { limit: 300000, rate: 0.0 },
-                { limit: 600000, rate: 0.05 },
-                { limit: 2000000, rate: 0.10 },
-                { limit: Infinity, rate: 0.25 }
-            ];
-
-            const rateMultiplier = notInATL ? 2 : 1;
-            let totalTax = 0;
-            let breakdown = [];
-            let previousSlabLimit = 0;
-
-            for (const slab of slabs) {
-                if (income > previousSlabLimit) {
-                    const taxableInBracket = Math.min(income, slab.limit) - previousSlabLimit;
-                    if (taxableInBracket > 0) {
-                        const taxForBracket = taxableInBracket * slab.rate * rateMultiplier;
-                        totalTax += taxForBracket;
-                        breakdown.push({
-                            range: `${formatNumberWithCommas(previousSlabLimit + 1)} - ${slab.limit === Infinity ? 'Above' : formatNumberWithCommas(slab.limit)}`,
-                            taxable: taxableInBracket,
-                            rate: `${(slab.rate * 100 * rateMultiplier).toFixed(1)}%`,
-                            tax: taxForBracket
-                        });
-                    }
-                }
-                previousSlabLimit = slab.limit;
-                if (income <= slab.limit) break;
-            }
-
-            return { totalTax, breakdown };
-        }
-
-        function estimateIncomeFromTaxRent(targetTax, notInATL) {
-            let low = 0, high = 1_000_000_000;
-            for(let i = 0; i < 100; i++) {
-                let mid = (low + high) / 2;
-                const { totalTax } = computeTaxRent(mid, notInATL);
-                
-                if (Math.abs(totalTax - targetTax) < 0.001) {
-                    return mid;
-                }
-                if (totalTax < targetTax) {
-                    low = mid;
-                } else {
-                    high = mid;
-                }
-            }
-            return low;
-        }
-
-        function calculateRentTax() {
-            const mode = document.querySelector('input[name="rentMode"]:checked').value;
-            const notInATL = document.getElementById('rentNotInATL').checked;
-            let income = 0;
-
-            if (mode === "forward") {
-                income = parseFloat(document.getElementById('rentIncome').value);
-                if (isNaN(income) || income < 0) {
-                    alert("Please enter a valid positive income amount for Rent Tax.");
-                    return;
-                }
-            } else {
-                const knownTax = parseFloat(document.getElementById('rentKnownTax').value);
-                if (isNaN(knownTax)) {
-                    alert("Please enter a valid tax amount for Rent Tax.");
-                    return;
-                }
-                income = estimateIncomeFromTaxRent(knownTax, notInATL);
-            }
-            
-            const { totalTax, breakdown } = computeTaxRent(income, notInATL);
-
-            latestRentReport = {
-                income: income,
-                tax: totalTax,
-                breakdown: breakdown
-            };
-
-            updateUnifiedDashboard('rent');
-        }
-
-
-        // --- Agricultural Income Tax Calculator Logic ---
-        function toggleAgriculturalMode() {
-            const mode = document.querySelector('input[name="agriculturalMode"]:checked').value;
-            document.getElementById("agriculturalIncomeInputWrapper").classList.toggle("hidden", mode === "reverse");
-            document.getElementById("agriculturalTaxInputWrapper").classList.toggle("hidden", mode === "forward");
-        }
-
-        function calculateAgriculturalTax() {
-            const mode = document.querySelector('input[name="agriculturalMode"]:checked').value;
-            let income = 0;
-            
-            if (mode === "forward") {
-                income = parseFloat(document.getElementById('agriculturalIncome').value);
-                if (isNaN(income)) {
-                    alert("Please enter a valid income amount for Agricultural Income Tax.");
-                    return;
-                }
-            } else {
-                const knownTax = parseFloat(document.getElementById('agriculturalKnownTax').value);
-                if (isNaN(knownTax)) {
-                    alert("Please enter a valid tax amount for Agricultural Income Tax.");
-                    return;
-                }
-                income = estimateIncomeFromTaxAgricultural(knownTax);
-            }
-
-            const { totalTax, breakdown } = computeTaxAgricultural(income);
-            
-            latestAgriculturalReport = {
-                income: income,
-                tax: totalTax, 
-                breakdown: breakdown
-            };
-            updateUnifiedDashboard('agricultural');
-        }
-        
-        function computeTaxAgricultural(income) {
-             const slabs = [
-                { limit: 600000,   rate: 0 },
-                { limit: 1200000,  rate: 0.15 },
-                { limit: 1600000,  rate: 0.20 },
-                { limit: 3200000,  rate: 0.30 },
-                { limit: 5600000,  rate: 0.40 },
-                { limit: Infinity, rate: 0.45 }
-            ];
-
-            let totalTax = 0;
-            let breakdown = [];
-            let previousSlabLimit = 0;
-
-            for (const slab of slabs) {
-                if (income > previousSlabLimit) {
-                    const taxableInBracket = Math.min(income, slab.limit) - previousSlabLimit;
-                    if (taxableInBracket > 0) {
-                        const taxForBracket = taxableInBracket * slab.rate;
-                        totalTax += taxForBracket;
-                        breakdown.push({
-                            range: `${formatNumberWithCommas(previousSlabLimit + 1)} - ${slab.limit === Infinity ? 'Above' : formatNumberWithCommas(slab.limit)}`,
-                            taxable: taxableInBracket,
-                            rate: `${(slab.rate * 100).toFixed(1)}%`,
-                            tax: taxForBracket
-                        });
-                    }
-                }
-                previousSlabLimit = slab.limit;
-                if(income <= slab.limit) break;
-            }
-            return { totalTax, breakdown };
-        }
-
-        function estimateIncomeFromTaxAgricultural(targetTax) {
-            let low = 0, high = 1_000_000_000;
-            for(let i = 0; i < 100; i++) {
-                let mid = (low + high) / 2;
-                const { totalTax } = computeTaxAgricultural(mid);
-                
-                if (Math.abs(totalTax - targetTax) < 0.001) {
-                    return mid;
-                }
-                if (totalTax < targetTax) {
-                    low = mid;
-                } else {
-                    high = mid;
-                }
-            }
-            return low;
-        }
 
         // --- Unified Dashboard Update Logic ---
         function updateUnifiedDashboard(calculatorType) {
@@ -1175,50 +379,30 @@
             document.getElementById("outTaxpayerCnic").innerText = cnic;
             document.getElementById("outCalculatorType").innerText = calculatorType.replace('-', ' ').toUpperCase();
 
-            // Hide all specific result summaries first
-            document.getElementById('nonSalariedResultsSummary').classList.add('hidden');
-            document.getElementById('salariedResultsSummary').classList.add('hidden');
-            document.getElementById('rentResultsSummary').classList.add('hidden');
-            document.getElementById('agriculturalResultsSummary').classList.add('hidden');
+            document.querySelectorAll('#specificResultsContent > div').forEach(el => el.classList.add('hidden'));
 
             const formatInt = (num) => Math.round(num).toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 });
             
-            let liveTaxableAmount = 0;
-            let liveTotalTax = 0;
+            let taxableAmount = 0;
+            let totalTax = 0;
 
             if (calculatorType === 'non-salaried' && latestNonSalariedReport.income !== undefined) {
                 document.getElementById('nonSalariedResultsSummary').classList.remove('hidden');
                 const report = latestNonSalariedReport;
-                
-                liveTaxableAmount = report.income;
-                liveTotalTax = report.tax + report.surcharge + report.superTax;
-
+                taxableAmount = report.income;
+                totalTax = report.tax + report.surcharge + report.superTax;
                 document.getElementById("nsOutIncome").innerText = formatInt(report.income);
-                document.getElementById("nsTotalTax").innerText = formatInt(liveTotalTax);
+                document.getElementById("nsTotalTax").innerText = formatInt(totalTax);
                 document.getElementById("nsNormalTax").innerText = formatInt(report.tax);
                 document.getElementById("nsSurcharge").innerText = formatInt(report.surcharge);
                 document.getElementById("nsSuperTax").innerText = formatInt(report.superTax);
-
                 const tableBody = document.getElementById("nsSlabTableBody");
-                tableBody.innerHTML = "";
-                report.slabDetails.forEach(row => {
-                    const tr = document.createElement("tr");
-                    tr.innerHTML = `
-                        <td class='border px-3 py-2'>${row.range}</td>
-                        <td class='border px-3 py-2'>${row.rate}</td>
-                        <td class='border px-3 py-2'>PKR ${formatInt(row.taxOnThisBracket)}</td>
-                        <td class='border px-3 py-2'>PKR ${formatInt(row.cumulativeTax)}</td>
-                    `;
-                    tableBody.appendChild(tr);
-                });
-
+                tableBody.innerHTML = report.slabDetails.map(row => `<tr><td class='border px-3 py-2'>${row.range}</td><td class='border px-3 py-2'>${row.rate}</td><td class='border px-3 py-2'>PKR ${formatInt(row.taxOnThisBracket)}</td><td class='border px-3 py-2'>PKR ${formatInt(row.cumulativeTax)}</td></tr>`).join('');
             } else if (calculatorType === 'salaried' && latestSalariedReport.income !== undefined) {
-                document.getElementById('salariedResultsSummary').classList.remove('hidden');
+                 document.getElementById('salariedResultsSummary').classList.remove('hidden');
                 const report = latestSalariedReport;
-
-                liveTaxableAmount = report.taxable;
-                liveTotalTax = report.tax;
-
+                taxableAmount = report.taxable;
+                totalTax = report.tax;
                 document.getElementById("sDashIncomeAnnual").textContent = formatInt(report.income);
                 document.getElementById("sDashIncomeMonthly").textContent = formatInt(report.monthlyIncome);
                 document.getElementById("sDashMedical").textContent = formatInt(report.medical);
@@ -1230,124 +414,53 @@
                 document.getElementById("sDashTotalMonthlyTax").textContent = formatInt(report.monthlyTax);
                 document.getElementById("sDashNetAnnual").textContent = formatInt(report.netPayable);
                 document.getElementById("sDashNetMonthly").textContent = formatInt(report.monthlyNet);
-
-                if (report.surcharge > 0) {
-                    document.getElementById("sSurchargeRow").classList.remove("hidden");
-                    document.getElementById("sDashSurcharge").textContent = formatInt(report.surcharge);
-                } else {
-                    document.getElementById("sSurchargeRow").classList.add("hidden");
-                }
-
-                const slabsContainer = document.getElementById("sDashSlabs");
-                slabsContainer.innerHTML = "";
-                if (report.slabDetails && report.slabDetails.length > 0) {
-                    report.slabDetails.forEach(slab => {
-                        const row = document.createElement("tr");
-                        row.innerHTML = `
-                            <td>${slab.index}</td>
-                            <td>${slab.range}</td>
-                            <td>${slab.rate}</td>
-                            <td class="text-right">${formatInt(slab.amount)}</td>
-                            <td class="text-right">${formatInt(slab.tax)}</td>
-                        `;
-                        slabsContainer.appendChild(row);
-                    });
-                }
-
+                document.getElementById("sSurchargeRow").classList.toggle("hidden", report.surcharge <= 0);
+                document.getElementById("sDashSurcharge").textContent = formatInt(report.surcharge);
+                document.getElementById("sDashSlabs").innerHTML = report.slabDetails.map(slab => `<tr><td>${slab.index}</td><td>${slab.range}</td><td>${slab.rate}</td><td class="text-right">${formatInt(slab.amount)}</td><td class="text-right">${formatInt(slab.tax)}</td></tr>`).join('');
             } else if (calculatorType === 'rent' && latestRentReport.income !== undefined) {
                 document.getElementById('rentResultsSummary').classList.remove('hidden');
                 const report = latestRentReport;
-
-                liveTaxableAmount = report.income;
-                liveTotalTax = report.tax;
-
+                taxableAmount = report.income;
+                totalTax = report.tax;
                 document.getElementById('rSummaryIncome').textContent = formatInt(report.income);
                 document.getElementById('rSummaryTax').textContent = formatInt(report.tax);
-
-                const tableBody = document.getElementById("rDashSlabs");
-                tableBody.innerHTML = "";
-                report.breakdown.forEach(slab => {
-                    const row = document.createElement('tr');
-                    row.innerHTML = `
-                        <td>${slab.range}</td>
-                        <td class="text-right">${formatInt(slab.taxable)}</td>
-                        <td class="text-right">${slab.rate}</td>
-                        <td class="text-right">${formatInt(slab.tax)}</td>
-                    `;
-                    tableBody.appendChild(row);
-                });
-
+                document.getElementById("rDashSlabs").innerHTML = report.breakdown.map(slab => `<tr><td>${slab.range}</td><td class="text-right">${formatInt(slab.taxable)}</td><td class="text-right">${slab.rate}</td><td class="text-right">${formatInt(slab.tax)}</td></tr>`).join('');
             } else if (calculatorType === 'agricultural' && latestAgriculturalReport.income !== undefined) {
                 document.getElementById('agriculturalResultsSummary').classList.remove('hidden');
                 const report = latestAgriculturalReport;
-
-                liveTaxableAmount = report.income;
-                liveTotalTax = report.tax;
-
+                taxableAmount = report.income;
+                totalTax = report.tax;
                 document.getElementById('agriSummaryIncome').textContent = formatInt(report.income);
                 document.getElementById('agriSummaryTax').textContent = formatInt(report.tax);
-                
-                const tableBody = document.getElementById("agriDashSlabs");
-                tableBody.innerHTML = "";
-                report.breakdown.forEach(slab => {
-                    const row = document.createElement('tr');
-                    row.innerHTML = `
-                        <td>${slab.range}</td>
-                        <td class="text-right">${formatInt(slab.taxable)}</td>
-                        <td class="text-right">${slab.rate}</td>
-                        <td class="text-right">${formatInt(slab.tax)}</td>
-                    `;
-                    tableBody.appendChild(row);
-                });
+                document.getElementById("agriDashSlabs").innerHTML = report.breakdown.map(slab => `<tr><td>${slab.range}</td><td class="text-right">${formatInt(slab.taxable)}</td><td class="text-right">${slab.rate}</td><td class="text-right">${formatInt(slab.tax)}</td></tr>`).join('');
             }
-
-            // Update live summary panel
-            const liveSummaryPanel = document.getElementById('liveSummaryPanel');
-            if(liveTaxableAmount > 0 || liveTotalTax > 0){
-                document.getElementById('liveTaxableAmount').innerText = formatInt(liveTaxableAmount);
-                document.getElementById('liveTotalTax').innerText = formatInt(liveTotalTax);
-                liveSummaryPanel.classList.remove('hidden');
-            } else {
-                 liveSummaryPanel.classList.add('hidden');
+            
+            // Show summary panel
+            const summaryPanel = document.getElementById('calculationSummary');
+            if (taxableAmount > 0 || totalTax > 0) {
+                document.getElementById('summaryTaxableAmount').innerText = formatInt(taxableAmount);
+                document.getElementById('summaryTotalTax').innerText = formatInt(totalTax);
+                summaryPanel.classList.remove('hidden', 'scale-95', 'opacity-0');
+                summaryPanel.classList.add('scale-100', 'opacity-100');
+                summaryPanel.scrollIntoView({ behavior: 'smooth', block: 'center' });
             }
-
-
-            document.getElementById("unifiedResultsDashboard").classList.remove("hidden");
         }
 
-        // --- PDF Generation Function ---
+        // --- PDF Generation and Print Functions ---
         function generatePDF() {
             if (document.getElementById("unifiedResultsDashboard").classList.contains('hidden')) {
-                alert("Please calculate tax first before generating PDF.");
+                alert("Please generate the full report first before downloading PDF.");
                 return;
             }
-
             const { jsPDF } = window.jspdf;
             const doc = new jsPDF('p', 'pt', 'a4');
             const element = document.getElementById('printableDashboard');
-            
-            // Add a loading indicator
             const loadingText = document.createElement('div');
-            loadingText.style.position = 'fixed';
-            loadingText.style.top = '50%';
-            loadingText.style.left = '50%';
-            loadingText.style.transform = 'translate(-50%, -50%)';
-            loadingText.style.backgroundColor = 'rgba(0,0,0,0.7)';
-            loadingText.style.color = 'white';
-            loadingText.style.padding = '20px';
-            loadingText.style.borderRadius = '5px';
-            loadingText.style.zIndex = '9999';
+            loadingText.className = 'fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-black bg-opacity-70 text-white p-5 rounded-lg z-50';
             loadingText.textContent = 'Generating PDF...';
             document.body.appendChild(loadingText);
 
-            html2canvas(element, {
-                scale: 2,
-                logging: false,
-                useCORS: true,
-                allowTaint: true,
-                scrollX: 0,
-                scrollY: 0
-            }).then(canvas => {
+            html2canvas(element, { scale: 2 }).then(canvas => {
                 const imgData = canvas.toDataURL('image/png');
                 const imgWidth = doc.internal.pageSize.getWidth() - 40;
                 const pageHeight = doc.internal.pageSize.getHeight();
@@ -1357,34 +470,34 @@
 
                 doc.addImage(imgData, 'PNG', 20, position, imgWidth, imgHeight);
                 heightLeft -= pageHeight;
-
                 while (heightLeft >= 0) {
                     position = heightLeft - imgHeight;
                     doc.addPage();
                     doc.addImage(imgData, 'PNG', 20, position, imgWidth, imgHeight);
                     heightLeft -= pageHeight;
                 }
-
-                // Remove loading indicator
                 document.body.removeChild(loadingText);
-
-                // Save the PDF
                 doc.save('TMRAC_Tax_Calculation_Results.pdf');
             }).catch(err => {
                 console.error('Error generating PDF:', err);
                 document.body.removeChild(loadingText);
-                alert('Error generating PDF. Please try again.');
+                alert('Error generating PDF.');
             });
         }
 
-        // --- Unified Print Function ---
         function printUnifiedResults() {
             if (document.getElementById("unifiedResultsDashboard").classList.contains('hidden')) {
-                alert("Please calculate tax first before printing.");
+                alert("Please generate the full report first before printing.");
                 return;
             }
             window.print();
         }
+
+        // Initialize with non-salaried calculator active
+        document.addEventListener('DOMContentLoaded', () => {
+            switchCalculator('non-salaried');
+        });
     </script>
 </body>
 </html>
+
